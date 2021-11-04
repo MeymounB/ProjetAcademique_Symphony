@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+equipement:
+    path: /equipement/accueil
+    controller: App\Controller\EquipementController::accueil
