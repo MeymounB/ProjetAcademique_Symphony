@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\EquipementRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -19,6 +21,7 @@ class Equipement
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $Nom;
 
@@ -33,7 +36,7 @@ class Equipement
     private $Prix;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $Description;
 
