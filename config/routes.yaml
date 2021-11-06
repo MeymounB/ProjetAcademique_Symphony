@@ -5,3 +5,11 @@
 equipement:
     path: /equipement/accueil
     controller: App\Controller\EquipementController::accueil
+
+allequipement:
+    path: /equipement/allequipement
+    controller: App\Controller\AllEquipementController::allequipement
+
+description:
+    path: /equipement/description
+    controller: App\Controller\DescriptionController::description

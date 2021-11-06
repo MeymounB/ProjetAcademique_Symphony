@@ -6,9 +6,10 @@ use App\Entity\Equipement;
 use App\Form\EquipementFormType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Twig\Environment;
+use Twig\Environment; 
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class EquipementController extends AbstractController
 {
@@ -24,10 +25,12 @@ class EquipementController extends AbstractController
 			$entityManager->persist($equipement);
 			$entityManager->flush();
 
-			return new Response("l'équipement numéro " . $equipement->getId() . " a été créé...");
+			$this->addFlash("success", "L'équipement a été ajouté !");
+
+			return $this->redirectToRoute('equipement');
 		}
 
-		return new Response($twig->render('equipement/accueil.html.twig', [
+		return new Response($twig->render('equipement/accueil.html.twig',[
 			'equipement_form' => $form->createView()
 		]));
 	}

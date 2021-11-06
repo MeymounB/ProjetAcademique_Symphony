@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block  body %}
+
+<h2><a href="{{path('equipement')}}" > Retourner à la page de formulaire </a></h2>
+	<h2> Tableau des équipements de Football <h2>
+
+
+	<table>
+		<tbody>
+			<thread>
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Nom</th>
+					<th scope="col">Quantité</th>
+					<th scope="col">Description</th>
+				</tr>
+			</thread>
+		<tr>
+		{% for object in all_equipement %}
+			<th scope="row"> {{object.id}}</th>
+			<td>{{object.nom}}</td>
+			<td>{{object.quantite}}</td>
+			<td><a href={{path('description', {'id': object.id}) }} role="button">description</a></td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+
+{% endblock %}	

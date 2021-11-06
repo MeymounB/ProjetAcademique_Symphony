@@ -2,8 +2,11 @@
 
 {% block  body %}
 
-	<h2> Formulaire Equipement de Football <h2>
+	<h2> Formulaire des équipements de Football <h2>
 
 	{{form(equipement_form)}}
 
+	<br></br>
+	
+	<a href="{{path('allequipement')}}" > Aller à la page des équipements </a>
 {% endblock %}	
