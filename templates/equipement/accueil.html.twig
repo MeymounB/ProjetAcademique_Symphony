@@ -2,11 +2,17 @@
 
 {% block  body %}
 
-	<h2> Formulaire des équipements de Football <h2>
+	<div class="d-flex flex-column align-items-center form-group">
 
-	{{form(equipement_form)}}
+		<div><h2> Formulaire des équipements de Football <h2></div>
 
-	<br></br>
-	
-	<a href="{{path('allequipement')}}" > Aller à la page des équipements </a>
-{% endblock %}	
+		<br></br>
+
+       			<div>{{form(equipement_form)}}</div>
+
+		<br></br>
+
+		<div><a href="{{path('allequipement')}}" class="btn btn-primary" > Aller à la page des équipements </a></div>
+    	</div>
+
+{% endblock %}

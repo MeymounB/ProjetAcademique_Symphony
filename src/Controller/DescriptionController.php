@@ -5,14 +5,19 @@ namespace App\Controller;
 use App\Entity\Equipement;
 use Twig\Environment;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\RouteCollection;
-use Symfony\Component\Routing\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 class DescriptionController extends AbstractController{
-	public function allequipement (Environment $twig ){
-		
-		return new Response($twig->render('equipement/description.html.twig'));
 
+	/**
+	 *@Route("/equipement/description/{id}", name="description_show")
+	*/
+	public function show($id){
+		$repo = $this->getDoctrine()->getRepository(Equipement::class);
+		$description = $repo->find($id);
+		return $this->render('equipement/description.html.twig',[
+		'description' =>$description
+		]);
 	}
 }

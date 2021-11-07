@@ -2,29 +2,32 @@
 
 {% block  body %}
 
-<h2><a href="{{path('equipement')}}" > Retourner à la page de formulaire </a></h2>
-	<h2> Tableau des équipements de Football <h2>
+	<div class="d-flex flex-column align-items-center">
+		<div><h2><a href="{{path('equipement')}}" class="btn btn-primary" > Retourner à la page de formulaire </a></h2></div>
+		<div><h2> Tableau des équipements de Football <h2></div>
 
 
-	<table>
-		<tbody>
-			<thread>
+		<div>	<table class="table">
+				<tbody>
+					<thread>
+						<tr>
+							<th scope="col">Id</th>
+							<th scope="col">Nom</th>
+							<th scope="col">Quantité</th>
+							<th scope="col">Infos équipement</th>
+						</tr>
+					</thread>
 				<tr>
-					<th scope="col">id</th>
-					<th scope="col">Nom</th>
-					<th scope="col">Quantité</th>
-					<th scope="col">Description</th>
+				{% for object in allequipement %}
+					<th scope="row">{{object.id}}</th>
+					<td>{{object.nom}}</td>
+					<td>{{object.quantite}}</td>
+					<td><a href={{path('description_show', {id: object.id}) }} class="btn btn-primary" role="button">infos supplémentaires</a></td>
 				</tr>
-			</thread>
-		<tr>
-		{% for object in all_equipement %}
-			<th scope="row"> {{object.id}}</th>
-			<td>{{object.nom}}</td>
-			<td>{{object.quantite}}</td>
-			<td><a href={{path('description', {'id': object.id}) }} role="button">description</a></td>
-		</tr>
-		{% endfor %}
-		</tbody>
-	</table>
+				{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
 
 {% endblock %}	
