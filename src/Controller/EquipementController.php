@@ -16,7 +16,7 @@ class EquipementController extends AbstractController
 
 	public function accueil(Environment $twig, Request $request, EntityManagerInterface $entityManager){
 		$equipement = new Equipement();
-
+		
 		$form = $this->createForm(EquipementFormType::class, $equipement);
 
 		$form->handleRequest($request);
