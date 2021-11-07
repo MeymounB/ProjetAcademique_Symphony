@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\EquipementRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -21,29 +19,28 @@ class Equipement
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank
      */
-    private $Nom;
+    private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Marque;
+    private $marque;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="decimal", precision=10, scale=2)
      */
-    private $Prix;
+    private $prix;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $Description;
+    private $description;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $Quantite;
+    private $quantite;
 
     public function getId(): ?int
     {
@@ -52,60 +49,60 @@ class Equipement
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getMarque(): ?string
     {
-        return $this->Marque;
+        return $this->marque;
     }
 
-    public function setMarque(string $Marque): self
+    public function setMarque(string $marque): self
     {
-        $this->Marque = $Marque;
+        $this->marque = $marque;
 
         return $this;
     }
 
-    public function getPrix(): ?int
+    public function getPrix(): ?string
     {
-        return $this->Prix;
+        return $this->prix;
     }
 
-    public function setPrix(int $Prix): self
+    public function setPrix(string $prix): self
     {
-        $this->Prix = $Prix;
+        $this->prix = $prix;
 
         return $this;
     }
 
     public function getDescription(): ?string
     {
-        return $this->Description;
+        return $this->description;
     }
 
-    public function setDescription(string $Description): self
+    public function setDescription(?string $description): self
     {
-        $this->Description = $Description;
+        $this->description = $description;
 
         return $this;
     }
 
     public function getQuantite(): ?int
     {
-        return $this->Quantite;
+        return $this->quantite;
     }
 
-    public function setQuantite(int $Quantite): self
+    public function setQuantite(int $quantite): self
     {
-        $this->Quantite = $Quantite;
+        $this->quantite = $quantite;
 
         return $this;
     }
